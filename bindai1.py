@@ -103,10 +103,9 @@ def build_cnn_with_drug_input(protein_input_shape, drug_input_shape):
     model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
     return model
 
-# Example usage with multiple proteins and drugs
 
 # List of protein PDB IDs
-pdb_ids = ['1A2C', '1A2B', '1A4U']  # Replace with actual PDB IDs
+pdb_ids = ['1A2C', '1A2B', '1A4U']  
 
 # Corresponding SMILES strings for drugs
 drug_smiles_list = [
@@ -140,8 +139,8 @@ for smiles in drug_smiles_list:
 
 X_drugs = np.array(drug_fingerprints)
 
-# Example labels (1 for binding, 0 for non-binding)
-y_train = np.array([1, 0, 1])  # Replace with actual binding affinity labels
+
+y_train = np.array([1, 0, 1])  
 
 # Build the CNN model
 protein_input_shape = (32, 32, 32, 1)  # Shape of the protein voxel grid
@@ -152,8 +151,8 @@ cnn_drug_model = build_cnn_with_drug_input(protein_input_shape, drug_input_shape
 cnn_drug_model.fit([X_proteins, X_drugs], y_train, epochs=10, batch_size=1)
 
 # Predict for new protein-drug pair
-new_pdb_id = '1A2C'  # Replace with a new PDB ID
-new_smiles = 'CCN'   # Example SMILES string (Ethylamine)
+new_pdb_id = '1A2C' 
+new_smiles = 'CCN'   
 
 # Fetch and voxelize new protein
 new_structure = fetch_protein_data(new_pdb_id)
@@ -346,10 +345,9 @@ def build_cnn_with_drug_input(protein_input_shape, drug_input_shape):
     model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
     return model
 
-# Example usage with multiple proteins and drugs
 
 # List of protein PDB IDs
-pdb_ids = ['1A2C', '1A2B', '1A4U']  # Replace with actual PDB IDs
+pdb_ids = ['1A2C', '1A2B', '1A4U']  
 
 # Corresponding SMILES strings for drugs
 drug_smiles_list = [
@@ -383,8 +381,8 @@ for smiles in drug_smiles_list:
 
 X_drugs = np.array(drug_fingerprints)
 
-# Example labels (1 for binding, 0 for non-binding)
-y_train = np.array([1, 0, 1])  # Replace with actual binding affinity labels
+
+y_train = np.array([1, 0, 1])  
 
 # Build the CNN model
 protein_input_shape = (32, 32, 32, 1)  # Shape of the protein voxel grid
@@ -395,8 +393,8 @@ cnn_drug_model = build_cnn_with_drug_input(protein_input_shape, drug_input_shape
 cnn_drug_model.fit([X_proteins, X_drugs], y_train, epochs=10, batch_size=1)
 
 # Predict for new protein-drug pair
-new_pdb_id = '1A2C'  # Replace with a new PDB ID
-new_smiles = 'CCN'   # Example SMILES string (Ethylamine)
+new_pdb_id = '1A2C'  
+new_smiles = 'CCN'  
 
 # Fetch and voxelize new protein
 new_structure = fetch_protein_data(new_pdb_id)
@@ -510,10 +508,9 @@ def build_cnn_with_drug_input(protein_input_shape, drug_input_shape):
     model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
     return model
 
-# Example usage with multiple proteins and drugs
 
 # List of protein PDB IDs
-pdb_ids = ['1A2C', '1A2B', '1A4U']  # Replace with actual PDB IDs
+pdb_ids = ['1A2C', '1A2B', '1A4U']  
 
 # Corresponding SMILES strings for drugs
 drug_smiles_list = [
@@ -534,7 +531,6 @@ for pdb_id in pdb_ids:
 # Voxelize proteins
 voxel_grids = [voxelize_protein(structure) for structure in protein_structures]
 
-# Convert voxel grids to NumPy arrays
 X_proteins = np.array(voxel_grids).reshape(-1, 32, 32, 32, 1)
 
 # Generate drug fingerprints
@@ -547,8 +543,7 @@ for smiles in drug_smiles_list:
 
 X_drugs = np.array(drug_fingerprints)
 
-# Example labels (1 for binding, 0 for non-binding)
-y_train = np.array([1, 0, 1])  # Replace with actual binding affinity labels
+y_train = np.array([1, 0, 1])  
 
 # Build the CNN model
 protein_input_shape = (32, 32, 32, 1)  # Shape of the protein voxel grid
@@ -559,8 +554,8 @@ cnn_drug_model = build_cnn_with_drug_input(protein_input_shape, drug_input_shape
 cnn_drug_model.fit([X_proteins, X_drugs], y_train, epochs=10, batch_size=1)
 
 # Predict for new protein-drug pair
-new_pdb_id = '1A2C'  # Replace with a new PDB ID
-new_smiles = 'CCN'   # Example SMILES string (Ethylamine)
+new_pdb_id = '1A2C'  
+new_smiles = 'CCN'   
 
 # Fetch and voxelize new protein
 new_structure = fetch_protein_data(new_pdb_id)
@@ -576,7 +571,7 @@ print(f'Predicted binding site probability for new protein-drug pair: {predictio
 # Save the trained model
 cnn_drug_model.save('deepdrug1st.keras')  # Save your trained model
 
-# Loading the model (optional, for later use)
+# Loading the model 
 from tensorflow.keras.models import load_model
 
 # Load the model
