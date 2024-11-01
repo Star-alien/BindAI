@@ -27,7 +27,6 @@ def fetch_protein_sequence(protein_id):
     handle.close()
     return str(record.seq)
 
-# Example protein ID
 protein_sequence = fetch_protein_sequence("NP_000477.1")
 print("Protein sequence:", protein_sequence)
 
@@ -44,7 +43,7 @@ api_key = "266c8d48bb34a15b47565d7ad34005122508"
 voxel_data_dir = "/content/protein_voxel_data"
 os.makedirs(voxel_data_dir, exist_ok=True)
 
-# List of protein IDs (replace this with a real list of 2500 IDs)
+# List of protein IDs 
 protein_ids = ["NP_000013.1", "NP_000014.2", "NP_000015.1", "NP_000016.1", "NP_000017.2", "NP_000018.2", "NP_000019.2", "NP_000020.1", "NP_000021.2", "NP_000022.1",
 "NP_000023.2", "NP_000024.1", "NP_000025.3", "NP_000026.2", "NP_000027.1", "NP_000028.1", "NP_000029.1", "NP_000030.1", "NP_000031.1", "NP_000032.2",
 "NP_000033.2", "NP_000034.1", "NP_000035.1", "NP_000036.2", "NP_000037.1", "NP_000038.2", "NP_000039.2", "NP_000040.1", "NP_000041.2", "NP_000042.2",
@@ -80,7 +79,7 @@ def fetch_protein_sequences(protein_ids, batch_size=100):
         sequences.extend(batch_records)
     return sequences
 
-# Function to convert sequence to a voxel grid (simplified example)
+# Function to convert sequence to a voxel grid 
 def sequence_to_voxel(sequence, grid_size=(32, 32, 32)):
     grid = np.zeros(grid_size)
     for i, amino_acid in enumerate(sequence[:grid_size[0] * grid_size[1] * grid_size[2]]):
@@ -154,7 +153,7 @@ class ProteinVoxelCNN(nn.Module):
             nn.ReLU(),
             nn.Dropout(0.4),
             nn.Linear(64, 1),  # Single output for binary classification (change if multiclass)
-            nn.Sigmoid()  # For binary classification, replace with Softmax for multiclass
+            nn.Sigmoid()  # For binary classification
         )
 
     def forward(self, x):
