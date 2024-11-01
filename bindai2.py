@@ -25,7 +25,7 @@ def fetch_ncbi_data(api_key, query):
     response = requests.get(base_url, params=params)
     return response.text
 
-# 2. Function to parse the fetched data (this example assumes FASTA format)
+# 2. Function to parse the fetched data
 def parse_fasta(fasta_data):
     lines = fasta_data.split('\n')
     sequence = ''.join([line.strip() for line in lines if not line.startswith('>')])
@@ -158,15 +158,15 @@ def fetch_ncbi_data(api_key, query):
     response = requests.get(base_url, params=params)
     return response.text
 
-# 2. Function to parse the fetched data (this example assumes FASTA format)
+# 2. Function to parse the fetched data 
 def parse_fasta(fasta_data):
     lines = fasta_data.split('\n')
     sequence = ''.join([line.strip() for line in lines if not line.startswith('>')])
     return sequence
 
-# 3. Example function to convert protein sequence into input features for CNN and LSTM
+# 3.  function to convert protein sequence into input features for CNN and LSTM
 def sequence_to_voxel_grid(sequence):
-    # Replace this dummy conversion with actual feature extraction logic
+    
     amino_acid_mapping = {
         'A': 1, 'C': 2, 'D': 3, 'E': 4, 'F': 5,
         'G': 6, 'H': 7, 'I': 8, 'K': 9, 'L': 10,
@@ -174,7 +174,7 @@ def sequence_to_voxel_grid(sequence):
         'S': 16, 'T': 17, 'V': 18, 'W': 19, 'Y': 20
     }
 
-    grid_size = (32, 32, 32)  # Modify as needed
+    grid_size = (32, 32, 32)  
     voxel_grid = np.zeros(grid_size)
 
     for i, amino_acid in enumerate(sequence):
@@ -256,7 +256,7 @@ proteins_of_interest = [
     # Add more genes to meet the requirement of at least 180
 ]
 
-# Example of using the above functions
+#  of using the above functions
 api_key = '7a0de4a6017e1be8e41a8c0fbcfd1a98b909'  # Your NCBI API key
 protein_data = [get_protein_data_from_ncbi(api_key, gene) for gene in proteins_of_interest]
 
