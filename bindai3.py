@@ -43,9 +43,8 @@ def fetch_smiles_from_pubchem(cid_list, api_key):
 
     return smiles_data
 
-# Additional example CIDs
 cid_list = ["2244", "3672", "5957", "1234", "4454", "2662", "3357", "2491", "5153", "5793"]  # Add more CIDs if needed
-api_key = "266c8d48bb34a15b47565d7ad34005122508	"  # Replace with your NCBI API key
+api_key = "266c8d48bb34a15b47565d7ad34005122508	"  
 smiles_data = fetch_smiles_from_pubchem(cid_list, api_key)
 
 # Define the preprocess_smiles function
